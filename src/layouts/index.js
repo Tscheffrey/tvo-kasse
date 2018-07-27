@@ -5,18 +5,24 @@ import Helmet from 'react-helmet'
 import Header from '../components/header'
 import '../style/index.scss'
 
+import { ThemeProvider } from 'styled-components'
+
+const theme = {
+  primaryColor: 'red'
+}
+
 const Layout = ({ children, data }) => (
   <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-      ]}
-    />
-    <div>
-      {children()}
-    </div>
+      <Helmet
+        title={data.site.siteMetadata.title}
+        meta={[
+          { name: 'description', content: 'Sample' },
+          { name: 'keywords', content: 'sample, something' },
+        ]}
+      />
+      <div>
+        {children()}
+      </div>
   </div>
 )
 
