@@ -3,14 +3,26 @@ import styled from 'styled-components'
 import createAbsoluteGrid from 'react-absolute-grid'
 import Shortid from 'shortid'
 
+const VoucherWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  padding: 12px;
+`
+
 const VoucherInner = styled.div`
-  height: 100px;
-  width: 200px;
+  height: 100%;
+  width: 100%;
   background: red;
 `
 
 function Voucher(props)  {
-  return <VoucherInner>{props.item.title}</VoucherInner>
+  return (
+    <VoucherWrapper>
+      <VoucherInner>
+        {props.item.title}
+      </VoucherInner>
+    </VoucherWrapper>
+      )
 }
 
 const items = [
@@ -29,7 +41,7 @@ class VoucherContainer extends React.Component {
   render(){
 
     return(
-      <AbsoluteGrid items={items} itemWidth={200} itemHeight={100} animation='transform 200ms ease' responsive/>
+      <AbsoluteGrid items={items} itemWidth={270} itemHeight={170} animation='transform 200ms ease' responsive/>
     )
   }
 
