@@ -19,6 +19,17 @@ const Currency = styled.span`
     margin-left: 16px;
 `
 
+const AmountRight = styled.span`
+    opacity: ${props => props.visible ? 1 : 0.1 };
+    transition: opacity 200ms ease;
+`
+
+const ResetButton = styled.div`
+    height: 100%;
+    width: 40px;
+    background: green;
+`
+
 class Price extends React.Component {
   constructor(props){
     super(props)
@@ -30,13 +41,16 @@ class Price extends React.Component {
 
     let amountRight = amountRounded.toString().split('.')[1]
 
+    let rightSideVisible = !(amountRight === '00')
+
     return(
       <Container className='price-container' primaryColor={this.props.primaryColor}>
         <Value>
           <span className='price-left'>{amountLeft}</span>
-          <span className='price-right'>,{amountRight}</span>
+          <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
           <Currency className='price-currency'>{this.props.currency}</Currency>
         </Value>
+        <ResetButton/>
       </Container>
     )
   }
