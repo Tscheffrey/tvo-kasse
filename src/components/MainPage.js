@@ -43,11 +43,13 @@ class MainPage extends React.Component {
   }
 
   render(){
-    <div className='main-container'>
-      <Price amount={14.03} primaryColor='#121212' currency='€' />
-      <VoucherContainer vouchers={this.state.vouchers} voucherAdded/>
-      <Link to="/settings/">zu den Einstellungen</Link>
-    </div>
+    return (
+      <div className='main-container'>
+        <Price amount={14.03} primaryColor='#121212' currency='€' />
+        <VoucherContainer vouchers={this.state.vouchers} voucherAdded/>
+        <Link to="/settings/">zu den Einstellungen</Link>
+      </div>
+    )
   }
 
 }
