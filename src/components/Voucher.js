@@ -17,7 +17,7 @@ const VoucherInner = styled.div`
 `
 
 const Title = styled.span`
-
+  font-size: 24px;
 `
 
 class Voucher extends React.Component {

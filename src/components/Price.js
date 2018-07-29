@@ -10,13 +10,14 @@ const Container = styled.div`
 `
 
 const Value = styled.div`
+    font-family: 'Roboto Mono', monospace;
     font-size: 80px;
     margin-right: 16px;
+    font-weight: 500;
 `
 
 const Currency = styled.span`
     font-weight: 100;
-    opacity: 0.5;
     margin-left: 16px;
 `
 
