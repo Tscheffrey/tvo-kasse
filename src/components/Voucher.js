@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const VoucherWrapper = styled.div`
   height: 200px;
   width: 50%;
-  padding: 12px;
+  padding: 8px;
 `
 
 const VoucherInner = styled.div`
@@ -13,17 +13,28 @@ const VoucherInner = styled.div`
   background: ${props => props.bgcolor ? props.bgcolor : 'grey' };
   cursor: pointer;
   user-select: none;
-  padding: 12px;
+  padding: 32px;
+  border-radius: 5px;
+  overflow: hidden;
+  position: relative;
 `
 
 const Title = styled.span`
-  font-size: 24px;
+  font-size: 48px;
+  font-family: 'Roboto Condensed'
+`
+
+const Price = styled.span`
+  font-family: 'Roboto Mono', monospace;
+  font-size: 32px;
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
 `
 
 class Voucher extends React.Component {
   constructor(props){
     super(props)
-    this.totalPrice = props.item.price + props.item.deposit
     this.onClick = this.onClick.bind(this)
   }
 
@@ -31,13 +42,17 @@ class Voucher extends React.Component {
     if(this.props.onPress) this.props.onPress(this.props.item)
   }
 
+  totalPrice(){
+    return this.props.item.price + this.props.item.deposit
+  }
+
   render(){
     return (
       <VoucherWrapper>
         <VoucherInner onClick={this.onClick} bgcolor={this.props.item.color}>
           <Title>{this.props.item.title}</Title>
+          <Price>{this.totalPrice()}</Price>
 
-           - {this.totalPrice} €
         </VoucherInner>
       </VoucherWrapper>
     )
