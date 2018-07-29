@@ -23,7 +23,7 @@ class Voucher extends React.Component {
   }
 
   onClick(){
-    console.log(this.props.item)
+    if(this.props.onPress) this.props.onPress(this.props.item)
   }
 
   render(){
