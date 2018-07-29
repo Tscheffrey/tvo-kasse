@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 
 const VoucherWrapper = styled.div`
-  height: 100%;
-  width: 100%;
+  height: 200px;
+  width: 50%;
   padding: 12px;
 `
 
@@ -13,6 +13,11 @@ const VoucherInner = styled.div`
   background: ${props => props.bgcolor ? props.bgcolor : 'grey' };
   cursor: pointer;
   user-select: none;
+  padding: 12px;
+`
+
+const Title = styled.span`
+
 `
 
 class Voucher extends React.Component {
@@ -30,7 +35,9 @@ class Voucher extends React.Component {
     return (
       <VoucherWrapper>
         <VoucherInner onClick={this.onClick} bgcolor={this.props.item.color}>
-          {this.props.item.title} - {this.totalPrice} €
+          <Title>{this.props.item.title}</Title>
+
+           - {this.totalPrice} €
         </VoucherInner>
       </VoucherWrapper>
     )

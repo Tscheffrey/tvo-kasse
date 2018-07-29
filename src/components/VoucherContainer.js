@@ -4,7 +4,10 @@ import createAbsoluteGrid from 'react-absolute-grid'
 import Shortid from 'shortid'
 import Voucher from './Voucher'
 
-
+const Container = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+`
 
 class VoucherContainer extends React.Component {
   constructor(props){
@@ -19,13 +22,9 @@ class VoucherContainer extends React.Component {
 
   render(){
     return(
-      <this.absoluteGrid
-        items={this.props.vouchers}
-        itemWidth={270}
-        itemHeight={170}
-        animation='transform 200ms ease'
-        responsive
-      />
+      <Container>
+        {this.props.vouchers.map( voucher => <Voucher key={voucher.key} item={voucher} onPress={this.props.onVoucherPressed} />)}
+      </Container>
     )
   }
 

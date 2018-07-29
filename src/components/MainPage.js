@@ -44,6 +44,7 @@ class MainPage extends React.Component {
     }
 
     this.onVoucherPressed = this.onVoucherPressed.bind(this)
+    this.resetVouchers = this.resetVouchers.bind(this)
   }
 
   onVoucherPressed(voucher) {
@@ -74,10 +75,14 @@ class MainPage extends React.Component {
     return this.state.vouchers.find(element => element.key === key)
   }
 
+  resetVouchers(){
+    this.setState({currentVouchers: {} })
+  }
+
   render(){
     return (
       <div className='main-container'>
-        <Price amount={this.getTotalPrice()} primaryColor='#121212' currency='€' />
+        <Price amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
         <VoucherContainer vouchers={this.state.vouchers} voucherAdded onVoucherPressed={this.onVoucherPressed}/>
         <Link to="/settings/">zu den Einstellungen</Link>
       </div>

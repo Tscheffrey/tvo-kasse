@@ -11,6 +11,7 @@ const Container = styled.div`
 
 const Value = styled.div`
     font-size: 80px;
+    margin-right: 16px;
 `
 
 const Currency = styled.span`
@@ -21,13 +22,15 @@ const Currency = styled.span`
 
 const AmountRight = styled.span`
     opacity: ${props => props.visible ? 1 : 0.1 };
-    transition: opacity 200ms ease;
+    /*transition: opacity 100ms ease;*/
 `
 
 const ResetButton = styled.div`
-    height: 100%;
-    width: 40px;
-    background: green;
+    height: 110px;
+    width: 110px;
+    background: #1f1f1f;
+    cursor: pointer
+    padding: 24px;
 `
 
 class Price extends React.Component {
@@ -50,7 +53,7 @@ class Price extends React.Component {
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
           <Currency className='price-currency'>{this.props.currency}</Currency>
         </Value>
-        <ResetButton/>
+        <ResetButton onClick={this.props.onReset}>reset</ResetButton>
       </Container>
     )
   }
