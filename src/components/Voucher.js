@@ -18,7 +18,7 @@ const VoucherInner = styled.div`
   overflow: hidden;
   position: relative;
   box-shadow: 0 0 30px 6px rgba(32,31,36,.11);
-  transition: transform 300ms cubic-bezier(.01,.68,.33,1.44),box-shadow .5s cubic-bezier(.01,.68,.33,1.44);
+  transition: transform 100ms cubic-bezier(.01,.68,.33,1.44),box-shadow .5s cubic-bezier(.01,.68,.33,1.44);
   :active {
     box-shadow: 0 0 40px 13px rgba(32,31,36,.11);
     transform: scale(1.01);
