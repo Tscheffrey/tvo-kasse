@@ -26,14 +26,14 @@ const VoucherInner = styled.div`
 `
 
 const Title = styled.span`
-  font-size: 24px;
-  font-family: 'Roboto Condensed'
-  font-weight: 700;
+  font-size: 28px;
+  font-family: 'Roboto Condensed';
+  font-weight: 600;
 `
 
 const Subtitle = styled.span`
   font-size: 12px;
-  font-family: 'Roboto Condensed'
+  font-family: 'Roboto Condensed';
 `
 
 const TitleContainer = styled.span`
@@ -45,7 +45,7 @@ const TitleContainer = styled.span`
 const SubtitleContainer = styled.span`
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: top;
 `
 
 const Price = styled.span`
@@ -91,7 +91,7 @@ class Voucher extends React.Component {
             <Price>{this.totalPrice()}</Price>
           </TitleContainer>
           <SubtitleContainer>
-            <Subtitle>{'test'}</Subtitle>
+            <Subtitle>{'test - test test - Testsdf test - test test - Testsdf test - test test - Testsdf'}</Subtitle>
             <Deposit>{this.deposit()}</Deposit>
           </SubtitleContainer>
         </VoucherInner>
