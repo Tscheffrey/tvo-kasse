@@ -83,7 +83,7 @@ class MainPage extends React.Component {
     return (
       <div className='main-container'>
         <Price amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
-        <VoucherContainer vouchers={this.state.vouchers} voucherAdded onVoucherPressed={this.onVoucherPressed}/>
+        <VoucherContainer vouchers={this.state.vouchers} onVoucherPressed={this.onVoucherPressed}/>
         {/* <Link to="/settings/">zu den Einstellungen</Link> */}
       </div>
     )
