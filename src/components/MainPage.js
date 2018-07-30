@@ -17,6 +17,11 @@ class MainPage extends React.Component {
           price: 6.5,
           deposit: 2.5,
           depositMark: true,
+          others: [
+            'test1',
+            'test2',
+            'test3',
+          ]
         },
         {
           key: Shortid.generate(),

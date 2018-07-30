@@ -92,6 +92,7 @@ class Voucher extends React.Component {
   }
 
   render(){
+    let subtitle = this.props.item.others ? this.props.item.others.join(', ') : ''
     return (
       <VoucherWrapper>
         <VoucherInner onClick={this.onClick} bgcolor={this.props.item.color}>
@@ -100,7 +101,7 @@ class Voucher extends React.Component {
             <Price>{this.totalPrice()}</Price>
           </TitleContainer>
           <SubtitleContainer>
-            <Subtitle>{'test - test test - Testsdf test - test test - Testsdf test - test test - Testsdf'}</Subtitle>
+            <Subtitle>{subtitle}</Subtitle>
             <Deposit visible={!(this.props.item.deposit == 0)}><DepositLabel>Pfand</DepositLabel>{this.deposit()}</Deposit>
           </SubtitleContainer>
         </VoucherInner>
