@@ -23,7 +23,16 @@ const Currency = styled.span`
 `
 
 const AmountRight = styled.span`
+    font-weight: 300;
     opacity: ${props => props.visible ? 1 : 0.1 };
+    ${props => props.visible ? '' : 'font-weight: 100;' };
+    /*transition: opacity 100ms ease;*/
+`
+
+const AmountLeft = styled.span`
+    font-weight: 500;
+    opacity: ${props => props.visible ? 1 : 0.1 };
+    ${props => props.visible ? '' : 'font-weight: 100;' };
     /*transition: opacity 100ms ease;*/
 `
 
@@ -52,10 +61,12 @@ class Price extends React.Component {
 
     let rightSideVisible = !(amountRight === '00')
 
+    let leftSideVisible = !(this.props.amount == 0)
+
     return(
       <Container className='price-container' primaryColor={this.props.primaryColor}>
         <Value>
-          <span className='price-left'>{amountLeft}</span>
+          <AmountLeft className='price-left' visible={leftSideVisible}>{amountLeft}</AmountLeft>
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
           <Currency className='price-currency'>{this.props.currency}</Currency>
         </Value>
