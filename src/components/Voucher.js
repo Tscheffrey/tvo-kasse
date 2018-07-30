@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const VoucherWrapper = styled.div`
   height: auto;
-  width: 33%;
+  width: 33.33%;
   padding: 8px;
 `
 
