@@ -98,7 +98,6 @@ class MainPage extends React.Component {
     let myAudio = new Audio()
     myAudio.src = sound1
     myAudio.play()
-    console.log('sound played');
   }
 
   render(){

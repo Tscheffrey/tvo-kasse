@@ -20,6 +20,7 @@ const Value = styled.div`
 const Currency = styled.span`
     font-weight: 100;
     margin-left: 16px;
+    opacity: ${props => props.visible ? 1 : 0.1 };
 `
 
 const AmountRight = styled.span`
@@ -57,16 +58,16 @@ class Price extends React.Component {
 
     let amountRight = amountRounded.toString().split('.')[1]
 
-    let rightSideVisible = !(amountRight === '00')
+    let rightSideVisible = (amountRight !== '00')
 
-    let leftSideVisible = !(this.props.amount == 0)
+    let amountIsNotZero = (this.props.amount != 0)
 
     return(
       <Container className='price-container' primaryColor={this.props.primaryColor}>
         <Value>
-          <AmountLeft className='price-left' visible={leftSideVisible}>{amountLeft}</AmountLeft>
+          <AmountLeft className='price-left' visible={amountIsNotZero}>{amountLeft}</AmountLeft>
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
-          <Currency className='price-currency'>{this.props.currency}</Currency>
+          <Currency className='price-currency'  visible={amountIsNotZero}>{this.props.currency}</Currency>
         </Value>
         <ResetButton onClick={this.props.onReset} />
       </Container>
