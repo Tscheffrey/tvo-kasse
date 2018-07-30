@@ -58,6 +58,15 @@ const Deposit = styled.span`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: 300;
+  white-space: nowrap;
+  opacity: ${props => props.visible ? 0.5 : 0 };
+`
+
+const DepositLabel = styled.span`
+  font-family: 'Roboto Condensed', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  margin-right: 8px;
 `
 
 class Voucher extends React.Component {
@@ -92,7 +101,7 @@ class Voucher extends React.Component {
           </TitleContainer>
           <SubtitleContainer>
             <Subtitle>{'test - test test - Testsdf test - test test - Testsdf test - test test - Testsdf'}</Subtitle>
-            <Deposit>{this.deposit()}</Deposit>
+            <Deposit visible={!(this.props.item.deposit == 0)}><DepositLabel>Pfand</DepositLabel>{this.deposit()}</Deposit>
           </SubtitleContainer>
         </VoucherInner>
       </VoucherWrapper>

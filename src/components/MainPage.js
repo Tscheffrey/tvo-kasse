@@ -29,12 +29,18 @@ class MainPage extends React.Component {
           key: Shortid.generate(),
           title: 'Kräusen',
           color: 'green',
-          price: 6.5,
-          deposit: 2.5,
-          depositMark: true,
           price: 2.3,
           deposit: 2,
-        }
+          depositMark: true,
+          deposit: 2,
+        },
+        {
+          key: Shortid.generate(),
+          title: 'Wein',
+          color: 'orange',
+          price: 2.5,
+          deposit: 0,
+        },
       ],
 
       currentVouchers: {},
