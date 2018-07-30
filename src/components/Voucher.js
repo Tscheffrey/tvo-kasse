@@ -43,7 +43,7 @@ class Voucher extends React.Component {
   }
 
   totalPrice(){
-    return this.props.item.price + this.props.item.deposit
+    return (this.props.item.price + this.props.item.deposit).toLocaleString('de-DE',  {minimumFractionDigits: 2})
   }
 
   render(){
