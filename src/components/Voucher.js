@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const VoucherWrapper = styled.div`
   height: 200px;
-  width: 50%;
+  width: 33%;
   padding: 8px;
 `
 
@@ -17,19 +17,28 @@ const VoucherInner = styled.div`
   border-radius: 5px;
   overflow: hidden;
   position: relative;
+  box-shadow: 0 0 30px 6px rgba(32,31,36,.11);
+  transition: transform 300ms cubic-bezier(.01,.68,.33,1.44),box-shadow .5s cubic-bezier(.01,.68,.33,1.44);
+  :active {
+    box-shadow: 0 0 40px 13px rgba(32,31,36,.11);
+    transform: scale(1.01);
+  }
 `
 
 const Title = styled.span`
-  font-size: 48px;
+  font-size: 24px;
   font-family: 'Roboto Condensed'
+`
+
+const TitleContainer = styled.span`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
 `
 
 const Price = styled.span`
   font-family: 'Roboto Mono', monospace;
-  font-size: 32px;
-  position: absolute;
-  bottom: 32px;
-  right: 32px;
+  font-size: 24px;
 `
 
 class Voucher extends React.Component {
@@ -50,8 +59,10 @@ class Voucher extends React.Component {
     return (
       <VoucherWrapper>
         <VoucherInner onClick={this.onClick} bgcolor={this.props.item.color}>
-          <Title>{this.props.item.title}</Title>
-          <Price>{this.totalPrice()}</Price>
+          <TitleContainer>
+            <Title>{this.props.item.title}</Title>
+            <Price>{this.totalPrice()}</Price>
+          </TitleContainer>
 
         </VoucherInner>
       </VoucherWrapper>

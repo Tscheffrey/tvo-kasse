@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import ResetIcon from '../images/loop.svg'
 
 const Container = styled.div`
     background: ${props => props.primaryColor};
@@ -30,8 +31,12 @@ const ResetButton = styled.div`
     height: 110px;
     width: 110px;
     background: #1f1f1f;
-    cursor: pointer
+    cursor: pointer;
     padding: 24px;
+    background-image: url(${ResetIcon});
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
 `
 
 class Price extends React.Component {
@@ -54,7 +59,7 @@ class Price extends React.Component {
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
           <Currency className='price-currency'>{this.props.currency}</Currency>
         </Value>
-        <ResetButton onClick={this.props.onReset}>reset</ResetButton>
+        <ResetButton onClick={this.props.onReset} />
       </Container>
     )
   }
