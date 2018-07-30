@@ -4,6 +4,8 @@ import Price from '../components/Price'
 import VoucherContainer from '../components/VoucherContainer'
 import Shortid from 'shortid'
 
+import sound1 from '../audio/frog_croaking_x1.mp3'
+
 class MainPage extends React.Component {
   constructor(props){
     super(props)
@@ -59,7 +61,9 @@ class MainPage extends React.Component {
   }
 
   onVoucherPressed(voucher) {
+    this.playSound()
     this.addVoucher(voucher.key)
+
   }
 
   addVoucher(key) {
@@ -88,6 +92,13 @@ class MainPage extends React.Component {
 
   resetVouchers(){
     this.setState({currentVouchers: {} })
+  }
+
+  playSound() {
+    let myAudio = new Audio()
+    myAudio.src = sound1
+    myAudio.play()
+    console.log('sound played');
   }
 
   render(){
