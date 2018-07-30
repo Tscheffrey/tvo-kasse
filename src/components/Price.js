@@ -23,14 +23,12 @@ const Currency = styled.span`
 `
 
 const AmountRight = styled.span`
-    font-weight: 300;
     opacity: ${props => props.visible ? 1 : 0.1 };
     ${props => props.visible ? '' : 'font-weight: 100;' };
     /*transition: opacity 100ms ease;*/
 `
 
 const AmountLeft = styled.span`
-    font-weight: 500;
     opacity: ${props => props.visible ? 1 : 0.1 };
     ${props => props.visible ? '' : 'font-weight: 100;' };
     /*transition: opacity 100ms ease;*/
