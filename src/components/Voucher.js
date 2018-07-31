@@ -97,7 +97,7 @@ class Voucher extends React.Component {
   }
 
   render(){
-    let subtitle = this.props.item.others ? this.props.item.others.join(', ') : ''
+    let subtitle = this.props.item.others ? 'oder ' + this.props.item.others.join(', ') : ''
     return (
       <VoucherWrapper>
         <VoucherInner onMouseDown={this.onClick} bgcolor={this.props.item.color}>
