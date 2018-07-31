@@ -70,7 +70,7 @@ class MainPage extends React.Component {
   }
 
   onVoucherPressed(voucher) {
-    this.playSound(sound1)
+    this.playSound(sound2)
     this.addVoucher(voucher.key)
 
   }
@@ -99,7 +99,7 @@ class MainPage extends React.Component {
   }
 
   resetVouchers(){
-    this.playSound(sound2)
+    this.playSound(sound1)
     this.setState({currentVouchers: {} })
   }
 
