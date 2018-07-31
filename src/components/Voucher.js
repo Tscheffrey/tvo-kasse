@@ -100,7 +100,7 @@ class Voucher extends React.Component {
     let subtitle = this.props.item.others ? this.props.item.others.join(', ') : ''
     return (
       <VoucherWrapper>
-        <VoucherInner onClick={this.onClick} bgcolor={this.props.item.color}>
+        <VoucherInner onMouseDown={this.onClick} bgcolor={this.props.item.color}>
           <TitleContainer>
             <Title>{this.props.item.title}</Title>
             <Price>{this.totalPrice()}</Price>
