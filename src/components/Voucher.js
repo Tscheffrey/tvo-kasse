@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
+ import media from '../helpers/media'
+
 const VoucherWrapper = styled.div`
   height: auto;
-  width: 33.33%;
+  width: 100%;
+  ${media.l`width: 50%;`}
+  ${media.xl`width: 33.33%;`}
   padding: 8px;
+
 `
 
 const VoucherInner = styled.div`
