@@ -3,8 +3,16 @@ import Link from 'gatsby-link'
 import Price from '../components/Price'
 import VoucherContainer from '../components/VoucherContainer'
 import Shortid from 'shortid'
+import styled from 'styled-components'
 
 import sound1 from '../audio/frog_croaking_x1.mp3'
+
+const Container = styled.section`
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+`
 
 class MainPage extends React.Component {
   constructor(props){
@@ -102,11 +110,11 @@ class MainPage extends React.Component {
 
   render(){
     return (
-      <div className='main-container'>
+      <Container className='main-container'>
         <Price amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
         <VoucherContainer vouchers={this.state.vouchers} onVoucherPressed={this.onVoucherPressed}/>
         {/* <Link to="/settings/">zu den Einstellungen</Link> */}
-      </div>
+      </Container>
     )
   }
 

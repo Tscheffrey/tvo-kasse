@@ -8,6 +8,7 @@ const Container = styled.div`
     width: 100%;
     display: flex;
     justify-content: flex-end;
+    flex-shrink: 0;
 `
 
 const Value = styled.div`

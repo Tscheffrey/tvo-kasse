@@ -7,6 +7,9 @@ import Voucher from './Voucher'
 const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
+    align-content: flex-start;
+    height: 100%;
+    overflow-y: auto;
 `
 
 class VoucherContainer extends React.Component {
