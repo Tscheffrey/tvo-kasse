@@ -9,7 +9,9 @@ const sizes = {
   xxl: 1280,
 }
 
-const media = Object.keys(sizes).reduce((acc, label) => {
+let media = {}
+
+const up = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
     @media (min-width: ${sizes[label]}px) {
       ${css(...args)}
@@ -18,14 +20,8 @@ const media = Object.keys(sizes).reduce((acc, label) => {
   return acc
 }, {})
 
-media.up = Object.keys(sizes).reduce((acc, label) => {
-  acc[label] = (...args) => css`
-    @media (min-width: ${sizes[label]}px) {
-      ${css(...args)}
-    }
-  `
-  return acc
-}, {})
+media = up
+media.up = up
 
 media.down = Object.keys(sizes).reduce((acc, label) => {
   acc[label] = (...args) => css`
