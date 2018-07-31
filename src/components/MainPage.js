@@ -7,6 +7,7 @@ import styled from 'styled-components'
 
 import sound1 from '../audio/cash_register_01.mp3'
 import sound2 from '../audio/cash_register_02.mp3'
+import vouchers from '../content/vouchers'
 
 const Container = styled.section`
   height: 100vh;
@@ -20,44 +21,7 @@ class MainPage extends React.Component {
     super(props)
 
     this.state = {
-      vouchers : [
-        {
-          key: Shortid.generate(),
-          title: 'Maultaschen gebr.',
-          color: '#BADA55',
-          price: 6.5,
-          deposit: 2.5,
-          depositMark: true,
-          others: [
-            'test1',
-            'test2',
-            'test3',
-          ]
-        },
-        {
-          key: Shortid.generate(),
-          title: 'Bier',
-          color: 'red',
-          price: 2.5,
-          deposit: 2,
-        },
-        {
-          key: Shortid.generate(),
-          title: 'Kräusen',
-          color: 'green',
-          price: 2.3,
-          deposit: 2,
-          depositMark: true,
-          deposit: 2,
-        },
-        {
-          key: Shortid.generate(),
-          title: 'Wein',
-          color: 'orange',
-          price: 2.5,
-          deposit: 0,
-        },
-      ],
+      vouchers : vouchers,
 
       currentVouchers: {},
 
