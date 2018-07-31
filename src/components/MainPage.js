@@ -5,7 +5,8 @@ import VoucherContainer from '../components/VoucherContainer'
 import Shortid from 'shortid'
 import styled from 'styled-components'
 
-import sound1 from '../audio/frog_croaking_x1.mp3'
+import sound1 from '../audio/cash_register_01.mp3'
+import sound2 from '../audio/cash_register_02.mp3'
 
 const Container = styled.section`
   height: 100vh;
@@ -69,7 +70,7 @@ class MainPage extends React.Component {
   }
 
   onVoucherPressed(voucher) {
-    this.playSound()
+    this.playSound(sound1)
     this.addVoucher(voucher.key)
 
   }
@@ -81,7 +82,6 @@ class MainPage extends React.Component {
     else currentVouchers[key] = 1
 
     this.setState({currentVouchers})
-
   }
 
   getTotalPrice() {
@@ -99,12 +99,13 @@ class MainPage extends React.Component {
   }
 
   resetVouchers(){
+    this.playSound(sound2)
     this.setState({currentVouchers: {} })
   }
 
-  playSound() {
+  playSound(src) {
     let myAudio = new Audio()
-    myAudio.src = sound1
+    myAudio.src = src
     myAudio.play()
   }
 
