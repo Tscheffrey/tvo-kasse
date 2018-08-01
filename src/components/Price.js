@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import ResetIcon from '../images/loop.svg'
+import media from '../helpers/media'
 
 const Container = styled.div`
     background: ${props => props.primaryColor};
@@ -14,6 +15,7 @@ const Container = styled.div`
 const Value = styled.div`
     font-family: 'Roboto Mono', monospace;
     font-size: 80px;
+    ${media.down.m`font-size: 44px;`}
     margin-right: 16px;
     font-weight: 500;
 `
@@ -39,6 +41,10 @@ const AmountLeft = styled.span`
 const ResetButton = styled.div`
     height: 110px;
     width: 110px;
+    ${media.down.m`
+          height: 58px;
+          width: 58px;
+          `}
     background: #1f1f1f;
     cursor: pointer;
     padding: 24px;
