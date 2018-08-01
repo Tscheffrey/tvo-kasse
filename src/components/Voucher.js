@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
- import media from '../helpers/media'
+import media from '../helpers/media'
 
 const VoucherWrapper = styled.div`
   height: auto;
