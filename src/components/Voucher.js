@@ -3,6 +3,8 @@ import styled from 'styled-components'
 
 import media from '../helpers/media'
 
+import { readableColor } from 'polished'
+
 const VoucherWrapper = styled.div`
   height: auto;
   width: 100%;
@@ -13,6 +15,7 @@ const VoucherWrapper = styled.div`
 `
 
 const VoucherInner = styled.div`
+  color: ${props => readableColor(props.bgcolor)};
   height: 100%;
   width: 100%;
   background: ${props => props.bgcolor ? props.bgcolor : 'grey' };
@@ -37,7 +40,7 @@ const Title = styled.span`
 `
 
 const Subtitle = styled.span`
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Roboto Condensed';
 `
 
