@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import media from '../helpers/media'
 
-import { readableColor } from 'polished'
+import { readableColor, ellipsis } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
@@ -37,6 +37,7 @@ const Title = styled.span`
   font-size: 28px;
   font-family: 'Roboto Condensed';
   font-weight: 600;
+  ${ellipsis('250px')}
 `
 
 const Subtitle = styled.span`
@@ -105,7 +106,7 @@ class Voucher extends React.Component {
       <VoucherWrapper>
         <VoucherInner onMouseDown={this.onClick} bgcolor={this.props.item.color}>
           <TitleContainer>
-            <Title>{this.props.item.title}</Title>
+            <Title title={this.props.item.title}>{this.props.item.title}</Title>
             <Price>{this.totalPrice()}</Price>
           </TitleContainer>
           <SubtitleContainer>
