@@ -25,8 +25,9 @@ class MainPage extends React.Component {
 
       currentVouchers: {},
 
-      totalPrice: 0.0
+      totalPrice: 0.0,
 
+      muted: true,
     }
 
     this.onVoucherPressed = this.onVoucherPressed.bind(this)
@@ -68,9 +69,11 @@ class MainPage extends React.Component {
   }
 
   playSound(src) {
-    let myAudio = new Audio()
-    myAudio.src = src
-    myAudio.play()
+    if(!this.state.muted) {
+      let myAudio = new Audio()
+      myAudio.src = src
+      myAudio.play()
+    }
   }
 
   render(){
