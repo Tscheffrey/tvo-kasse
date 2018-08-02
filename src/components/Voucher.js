@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import media from '../helpers/media'
 
-import { readableColor, ellipsis } from 'polished'
+import { readableColor, ellipsis, invert } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
@@ -25,11 +25,12 @@ const VoucherInner = styled.div`
   border-radius: 5px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 30px 6px rgba(32,31,36,.11);
-  transition: transform 100ms cubic-bezier(.01,.68,.33,1.44),box-shadow 100ms cubic-bezier(.01,.68,.33,1.44);
+  box-shadow: 0 0 30px 6px  rgba(142, 142, 142, 0.5);
+  border: 1px solid rgba(0,0,0,0.1);
+  transition: transform 100ms cubic-bezier(.01,.68,.33,1.44), box-shadow 100ms cubic-bezier(.01,.68,.33,1.44);
   :active {
-    box-shadow: none;
-    transform: scale(0.99);
+    box-shadow: 0 0 30px 6px  rgba(142, 142, 142, 0);
+    transform: translateY(8px);
   }
 `
 
