@@ -54,8 +54,8 @@ const ResetButton = styled.div`
         bottom: 24px;
         right: 24px;
         border-radius: 50%;
-        height: 58px;
-        width: 58px;
+        height: 88px;
+        width: 88px;
         z-index: 3;
         box-shadow: 0px 4px 19px 8px rgba(47, 47, 47, 0.22);
         background-color: #2546bf;
