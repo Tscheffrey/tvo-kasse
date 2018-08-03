@@ -18,6 +18,16 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
-    'gatsby-plugin-styled-components'
-    ],
+    'gatsby-plugin-styled-components',
+    {
+      resolve: '@raygesualdo/gatsby-plugin-babel-styled-components',
+      options: {
+        ssr: true,
+        displayName: true,
+        preprocess: true,
+        minify: false,
+        transpileTemplateLiterals: false,
+      },
+    },
+  ],
 }

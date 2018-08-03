@@ -16,6 +16,12 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@raygesualdo/gatsby-plugin-babel-styled-components@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@raygesualdo/gatsby-plugin-babel-styled-components/-/gatsby-plugin-babel-styled-components-1.0.1.tgz#dc55fcc7954e6b6beea9a445ec05b8349e77f023"
+  dependencies:
+    babel-plugin-styled-components "^1.5.1"
+
 "@types/configstore@^2.1.1":
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
