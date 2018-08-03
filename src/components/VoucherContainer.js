@@ -9,7 +9,8 @@ const Container = styled.div`
     flex-wrap: wrap;
     align-content: flex-start;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 `
 
 class VoucherContainer extends React.Component {

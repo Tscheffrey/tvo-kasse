@@ -22,11 +22,8 @@ module.exports = {
     {
       resolve: '@raygesualdo/gatsby-plugin-babel-styled-components',
       options: {
-        ssr: true,
         displayName: true,
-        preprocess: true,
-        minify: false,
-        transpileTemplateLiterals: false,
+        minify: true,
       },
     },
   ],
