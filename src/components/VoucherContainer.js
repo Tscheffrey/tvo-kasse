@@ -13,8 +13,8 @@ const Container = styled.div`
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     ${media.down.m`
-        padding-bottom: 100px;
-      `}
+        padding-bottom: 40vh;
+    `}
 `
 
 class VoucherContainer extends React.Component {
