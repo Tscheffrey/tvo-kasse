@@ -11,7 +11,7 @@ module.exports = {
         name: "TVO Kassenassistent",
         short_name: "TVO Kasse",
         start_url: "/",
-        background_color: "#121212",
+        background_color: "#ececec",
         theme_color: "#121212",
         display: "fullscreen",
         icon: "./src/images/favicon.png", // This path is relative to the root of the site.
