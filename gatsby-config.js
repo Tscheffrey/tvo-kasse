@@ -8,8 +8,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: "TVO Kasse",
-        short_name: "TVO",
+        name: "TVO Kassenassistent",
+        short_name: "TVO Kasse",
         start_url: "/",
         background_color: "#121212",
         theme_color: "#121212",
