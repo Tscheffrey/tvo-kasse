@@ -15,6 +15,7 @@
     "gatsby-plugin-styled-components": "^2.0.11",
     "polished": "^1.9.3",
     "react-absolute-grid": "^3.0.1",
+    "react-device-detect": "^1.5.9",
     "react-fullscreen-crossbrowser": "^1.0.9",
     "react-helmet": "^5.2.0",
     "react-responsive": "^5.0.0",

@@ -5,6 +5,7 @@ import FullscreenIcon from '../images/fullscreen.svg'
 import FullscreenExitIcon from '../images/fullscreen-exit.svg'
 import media from '../helpers/media'
 import Responsive from 'react-responsive'
+import {isMobileSafari} from 'react-device-detect'
 
 const MUp = props => <Responsive {...props} minWidth={576 - 1} />
 
@@ -98,6 +99,10 @@ class Price extends React.Component {
     super(props)
   }
 
+  FullScreenButtonView() {
+    if(!isMobileSafari) return <FullscreenButton isFullscreenEnabled={this.props.isFullscreenEnabled} onClick={this.props.onFullScreenPressed}/>
+  }
+
   render(){
     let amountRounded = this.props.amount.toFixed(2)
     let amountLeft = Math.floor(amountRounded).toString()
@@ -110,7 +115,7 @@ class Price extends React.Component {
 
     return(
       <Container className='price-container' primaryColor={this.props.primaryColor}>
-        <FullscreenButton isFullscreenEnabled={this.props.isFullscreenEnabled} onClick={this.props.onFullScreenPressed}/>
+        {this.FullScreenButtonView()}
         <Value>
           <AmountLeft className='price-left' visible={amountIsNotZero}>{amountLeft}</AmountLeft>
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
