@@ -64,7 +64,7 @@ const ResetButton = styled.div`
           box-shadow: 0 0 30px 6px rgba(47, 47, 47, 0);
           transform: translateY(4px);
         }
-          `}
+        `}
     background: #1f1f1f;
     cursor: pointer;
     padding: 24px;

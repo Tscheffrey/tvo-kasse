@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import createAbsoluteGrid from 'react-absolute-grid'
 import Shortid from 'shortid'
 import Voucher from './Voucher'
+import media from '../helpers/media'
 
 const Container = styled.div`
     display: flex;
@@ -11,6 +12,9 @@ const Container = styled.div`
     height: 100%;
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
+    ${media.down.m`
+        padding-bottom: 100px;
+      `}
 `
 
 class VoucherContainer extends React.Component {
