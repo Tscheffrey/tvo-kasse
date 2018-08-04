@@ -32,6 +32,9 @@ const VoucherInner = styled.div`
     box-shadow: 0 0 30px 6px  rgba(142, 142, 142, 0);
     transform: translateY(6px);
   }
+  ${media.down.m`
+    padding: 8px;
+  `}
 `
 
 const Title = styled.span`
