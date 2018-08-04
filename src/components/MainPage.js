@@ -4,6 +4,7 @@ import Price from '../components/Price'
 import VoucherContainer from '../components/VoucherContainer'
 import Shortid from 'shortid'
 import styled from 'styled-components'
+import Fullscreen from 'react-fullscreen-crossbrowser'
 
 import sound1 from '../audio/cash_register_01.mp3'
 import sound2 from '../audio/cash_register_02.mp3'
@@ -14,6 +15,10 @@ const Container = styled.section`
   width: 100%;
   display: flex;
   flex-direction: column;
+`
+
+const FullscreenButton = styled.div`
+
 `
 
 class MainPage extends React.Component {
@@ -28,6 +33,8 @@ class MainPage extends React.Component {
       totalPrice: 0.0,
 
       muted: true,
+
+      isFullscreenEnabled: false,
     }
 
     this.onVoucherPressed = this.onVoucherPressed.bind(this)
@@ -75,14 +82,18 @@ class MainPage extends React.Component {
       myAudio.play()
     }
   }
-
   render(){
     return (
+      <Fullscreen
+          enabled={this.state.isFullscreenEnabled}
+          onChange={isFullscreenEnabled => this.setState({isFullscreenEnabled})}
+        >
       <Container className='main-container'>
-        <Price amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
+        <Price isFullscreenEnabled={this.state.isFullscreenEnabled} onFullScreenPressed={() => this.setState({isFullscreenEnabled: !this.state.isFullscreenEnabled})} amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
         <VoucherContainer vouchers={this.state.vouchers} onVoucherPressed={this.onVoucherPressed}/>
         {/* <Link to="/settings/">zu den Einstellungen</Link> */}
       </Container>
+    </Fullscreen>
     )
   }
 

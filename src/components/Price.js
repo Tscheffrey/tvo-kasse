@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import ResetIcon from '../images/loop.svg'
+import FullscreenIcon from '../images/fullscreen.svg'
+import FullscreenExitIcon from '../images/fullscreen-exit.svg'
 import media from '../helpers/media'
 import Responsive from 'react-responsive'
 
@@ -74,6 +76,23 @@ const ResetButton = styled.div`
     background-position: center;
 `
 
+const FullscreenButton = styled.div`
+    height: 110px;
+    width: 20px;
+    background: #1f1f1f;
+    cursor: pointer;
+    padding: 24px;
+    background-image: url(${props => props.isFullscreenEnabled ? FullscreenExitIcon : FullscreenIcon });
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: auto;
+    ${media.down.m`
+      height: 92px;
+      padding: 18px;
+        `}
+`
+
 class Price extends React.Component {
   constructor(props){
     super(props)
@@ -91,6 +110,7 @@ class Price extends React.Component {
 
     return(
       <Container className='price-container' primaryColor={this.props.primaryColor}>
+        <FullscreenButton isFullscreenEnabled={this.props.isFullscreenEnabled} onClick={this.props.onFullScreenPressed}/>
         <Value>
           <AmountLeft className='price-left' visible={amountIsNotZero}>{amountLeft}</AmountLeft>
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
