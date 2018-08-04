@@ -9,12 +9,12 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: "TVO Kasse",
-        short_name: "TVO Kasse",
+        short_name: "TVO",
         start_url: "/",
         background_color: "#121212",
         theme_color: "#121212",
         display: "standalone",
-        //icon: "src/images/icon.png", // This path is relative to the root of the site.
+        icon: "./src/images/favicon.png", // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
