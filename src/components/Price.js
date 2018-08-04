@@ -7,9 +7,6 @@ import media from '../helpers/media'
 import Responsive from 'react-responsive'
 import {isMobileSafari} from 'react-device-detect'
 
-const MUp = props => <Responsive {...props} minWidth={576 - 1} />
-
-
 const Container = styled.div`
     background: ${props => props.primaryColor};
     color: white;
@@ -121,13 +118,10 @@ class Price extends React.Component {
           <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
           <Currency className='price-currency'  visible={amountIsNotZero}>{this.props.currency}</Currency>
         </Value>
-        {/* <MUp> */}
-          <ResetButton onClick={this.props.onReset} />
-        {/* </MUp> */}
+        <ResetButton onClick={this.props.onReset} />
       </Container>
     )
   }
-
 }
 
 export default Price
