@@ -97,7 +97,9 @@ class Price extends React.Component {
   }
 
   FullScreenButtonView() {
-    let hideFullscreenButton = isMobileSafari || window.matchMedia('(display-mode: standalone)').matches
+    let isBrowser = typeof window !== 'undefined'
+    let isPwa = isBrowser ? window.matchMedia('(display-mode: standalone)').matches : false
+    let hideFullscreenButton = isMobileSafari || isPwa
     if(!hideFullscreenButton ) return <FullscreenButton isFullscreenEnabled={this.props.isFullscreenEnabled} onClick={this.props.onFullScreenPressed}/>
   }
 
