@@ -10,6 +10,9 @@ import sound1 from '../audio/cash_register_01.mp3'
 import sound2 from '../audio/cash_register_02.mp3'
 import vouchers from '../content/vouchers'
 
+// import sizeMe from 'react-sizeme'
+// import Confetti from 'react-confetti'
+
 const Container = styled.section`
   height: 100vh;
   width: 100%;
@@ -89,6 +92,7 @@ class MainPage extends React.Component {
           onChange={isFullscreenEnabled => this.setState({isFullscreenEnabled})}
         >
       <Container className='main-container'>
+        {/* <Confetti /> */}
         <Price isFullscreenEnabled={this.state.isFullscreenEnabled} onFullScreenPressed={() => this.setState({isFullscreenEnabled: !this.state.isFullscreenEnabled})} amount={this.getTotalPrice()} primaryColor='#121212' currency='€' onReset={this.resetVouchers}/>
         <VoucherContainer vouchers={this.state.vouchers} onVoucherPressed={this.onVoucherPressed}/>
         {/* <Link to="/settings/">zu den Einstellungen</Link> */}
