@@ -2,20 +2,20 @@ import Shortid from 'shortid'
 
 const vouchers = [
   {
-    title: 'Maultaschen gebr.',
+    title: 'Sprudel',
     color: '#e68568',
-    price: 6.5,
-    deposit: 2.5,
+    price: 1.5,
+    deposit: 0,
     depositMark: true,
   },
   {
-    title: 'Maultaschen Brühe',
+    title: 'Cola',
     color: '#c9cab6',
-    price: 5.5,
+    price: 1.5,
     deposit: 2.5,
     depositMark: true,
     others: [
-      'Maultaschen ohne Kartoffelsalat',
+      'Fanta',
     ],
   },
   {
