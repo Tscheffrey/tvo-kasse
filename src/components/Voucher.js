@@ -89,18 +89,6 @@ const DepositLabel = styled.span`
   margin-right: 8px;
 `
 
-const Counter = styled.span`
-  /* font-family: 'Roboto Mono', monospace;
-  font-size: 1rem;
-  white-space: nowrap; */
-  display: inline-block;
-  border-radius: 20px;
-  padding-top: 2px;
-  transition: opacity 100ms ease, transform 100ms ease;
-  transform: ${props => (props.visible ? 'none' : 'translateY(12px)')};
-  opacity: ${props => (props.visible ? '0.5' : '0')};
-`
-
 const CounterBadge = styled.div`
   color: white;
   font-family: 'Roboto Mono', monospace;
