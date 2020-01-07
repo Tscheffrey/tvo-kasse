@@ -124,10 +124,7 @@ const CounterBadge = styled.div`
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
 `
 
-const CounterBadgeText = styled.span`
-  position: relative;
-  top: -1px;
-`
+const CounterBadgeText = styled.span``
 
 class Voucher extends React.Component {
   constructor(props) {
