@@ -1,55 +1,52 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import ResetIcon from '../images/loop.svg'
 import FullscreenIcon from '../images/fullscreen.svg'
 import FullscreenExitIcon from '../images/fullscreen-exit.svg'
 import media from '../helpers/media'
-import Responsive from 'react-responsive'
-import {isMobileSafari} from 'react-device-detect'
+import { isMobileSafari } from 'react-device-detect'
 
 const Container = styled.div`
-    background: ${props => props.primaryColor};
-    color: white;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-    flex-shrink: 0;
+  background: ${props => props.primaryColor};
+  color: white;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
 `
 
 const Value = styled.div`
-    font-family: 'Roboto Mono', monospace;
-    font-size: 80px;
-    ${media.down.m`
+  font-family: 'Roboto Mono', monospace;
+  font-size: 80px;
+  ${media.down.m`
       font-size: 64px;
       padding-top: 4px;
       padding-bottom: 4px;
       `}
-    margin-right: 16px;
-    font-weight: 500;
+  margin-right: 16px;
+  font-weight: 500;
 `
 
 const Currency = styled.span`
-    font-weight: 100;
-    margin-left: 16px;
-    opacity: ${props => props.visible ? 1 : 0.1 };
+  font-weight: 100;
+  margin-left: 16px;
+  opacity: ${props => (props.visible ? 1 : 0.1)};
 `
 
 const AmountRight = styled.span`
-    opacity: ${props => props.visible ? 1 : 0.1 };
-    ${props => props.visible ? '' : 'font-weight: 100;' };
-    /*transition: opacity 100ms ease;*/
+  opacity: ${props => (props.visible ? 1 : 0.1)};
+  ${props => (props.visible ? '' : 'font-weight: 100;')};
 `
 
 const AmountLeft = styled.span`
-    opacity: ${props => props.visible ? 1 : 0.1 };
-    ${props => props.visible ? '' : 'font-weight: 100;' };
-    /*transition: opacity 100ms ease;*/
+  opacity: ${props => (props.visible ? 1 : 0.1)};
+  ${props => (props.visible ? '' : 'font-weight: 100;')};
 `
 
 const ResetButton = styled.div`
-    height: 110px;
-    width: 110px;
-    ${media.down.m`
+  height: 110px;
+  width: 110px;
+  ${media.down.m`
         position: fixed;
         bottom: 24px;
         right: 24px;
@@ -65,61 +62,75 @@ const ResetButton = styled.div`
           transform: translateY(4px);
         }
         `}
-    background: #1f1f1f;
-    cursor: pointer;
-    padding: 24px;
-    background-image: url(${ResetIcon});
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
+  background: #1f1f1f;
+  cursor: pointer;
+  padding: 24px;
+  background-image: url(${ResetIcon});
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
 `
 
 const FullscreenButton = styled.div`
-    height: 110px;
-    width: 20px;
-    background: #1f1f1f;
-    cursor: pointer;
-    padding: 24px;
-    background-image: url(${props => props.isFullscreenEnabled ? FullscreenExitIcon : FullscreenIcon });
-    background-size: 50%;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right: auto;
-    ${media.down.m`
+  height: 110px;
+  width: 20px;
+  background: #1f1f1f;
+  cursor: pointer;
+  padding: 24px;
+  background-image: url(${props =>
+    props.isFullscreenEnabled ? FullscreenExitIcon : FullscreenIcon});
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: auto;
+  ${media.down.m`
       height: 92px;
       padding: 18px;
         `}
 `
 
 class Price extends React.Component {
-  constructor(props){
-    super(props)
-  }
-
   FullScreenButtonView() {
     let isBrowser = typeof window !== 'undefined'
-    let isPwa = isBrowser ? window.matchMedia('(display-mode: standalone)').matches : false
+    let isPwa = isBrowser
+      ? window.matchMedia('(display-mode: standalone)').matches
+      : false
     let hideFullscreenButton = isMobileSafari || isPwa
-    if(!hideFullscreenButton ) return <FullscreenButton isFullscreenEnabled={this.props.isFullscreenEnabled} onClick={this.props.onFullScreenPressed}/>
+    if (!hideFullscreenButton)
+      return (
+        <FullscreenButton
+          isFullscreenEnabled={this.props.isFullscreenEnabled}
+          onClick={this.props.onFullScreenPressed}
+        />
+      )
   }
 
-  render(){
+  render() {
     let amountRounded = this.props.amount.toFixed(2)
     let amountLeft = Math.floor(amountRounded).toString()
 
     let amountRight = amountRounded.toString().split('.')[1]
 
-    let rightSideVisible = (amountRight !== '00')
+    let rightSideVisible = amountRight !== '00'
 
-    let amountIsNotZero = (this.props.amount != 0)
+    let amountIsNotZero = this.props.amount !== 0
 
-    return(
-      <Container className='price-container' primaryColor={this.props.primaryColor}>
+    return (
+      <Container
+        className="price-container"
+        primaryColor={this.props.primaryColor}
+      >
         {this.FullScreenButtonView()}
         <Value>
-          <AmountLeft className='price-left' visible={amountIsNotZero}>{amountLeft}</AmountLeft>
-          <AmountRight className='price-right' visible={rightSideVisible}>,{amountRight}</AmountRight>
-          <Currency className='price-currency'  visible={amountIsNotZero}>{this.props.currency}</Currency>
+          <AmountLeft className="price-left" visible={amountIsNotZero}>
+            {amountLeft}
+          </AmountLeft>
+          <AmountRight className="price-right" visible={rightSideVisible}>
+            ,{amountRight}
+          </AmountRight>
+          <Currency className="price-currency" visible={amountIsNotZero}>
+            {this.props.currency}
+          </Currency>
         </Value>
         <ResetButton onClick={this.props.onReset} />
       </Container>

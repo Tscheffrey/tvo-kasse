@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 
 import media from '../helpers/media'
 
-import { readableColor, ellipsis, invert } from 'polished'
+import { readableColor, ellipsis } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
@@ -120,7 +120,7 @@ class Voucher extends React.Component {
           </TitleContainer>
           <SubtitleContainer>
             <Subtitle>{subtitle}</Subtitle>
-            <Deposit visible={!(this.props.item.deposit == 0)}>
+            <Deposit visible={!(this.props.item.deposit === 0)}>
               <DepositLabel>Pfand</DepositLabel>
               {this.deposit()}
             </Deposit>
