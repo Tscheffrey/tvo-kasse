@@ -1,72 +1,7 @@
 import Shortid from 'shortid'
+import vouchers from './vouchers.json'
 
-const vouchers = [
-  {
-    title: 'Sprudel',
-    color: '#e68568',
-    price: 1.5,
-    deposit: 0,
-    depositMark: true,
-  },
-  {
-    title: 'Cola',
-    color: '#c9cab6',
-    price: 1.5,
-    deposit: 2.5,
-    depositMark: true,
-    others: ['Fanta'],
-  },
-  {
-    title: 'Bier',
-    color: '#fbee4f',
-    price: 2.5,
-    deposit: 2,
-    others: ['Export', 'Radler'],
-  },
-  {
-    title: 'Kräusen',
-    color: '#fff',
-    price: 2.3,
-    deposit: 2,
-    depositMark: true,
-    others: ['Alkoholfrei'],
-  },
-  {
-    title: 'Apfelschorle',
-    color: '#e9e7e7',
-    price: 2,
-    deposit: 0,
-    depositMark: true,
-    others: ['Alkoholfrei'],
-  },
-  {
-    title: 'Wein',
-    color: '#b0cb8b',
-    price: 2.5,
-    deposit: 2,
-  },
-  {
-    title: 'Weinschorle',
-    color: '#fffba8',
-    price: 2,
-    deposit: 2,
-  },
-  {
-    title: 'Cola',
-    color: '#c0deec',
-    price: 1.5,
-    deposit: 0,
-    others: ['Sprudel', 'MezzoMix'],
-  },
-  {
-    title: 'Portion Kartoffelsalat',
-    color: '#ec9696',
-    price: 1.5,
-    deposit: 0,
-    others: ['leeres Glas', 'Schnaps'],
-  },
-]
-
+// generate unique ids for vouchers
 for (let voucher of vouchers) {
   voucher.key = Shortid.generate()
 }
