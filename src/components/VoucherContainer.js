@@ -30,15 +30,22 @@ class VoucherContainer extends React.Component {
   }
 
   render() {
+    const { vouchers, currentVouchers, onVoucherPressed } = this.props
     return (
       <Container>
-        {this.props.vouchers.map(voucher => (
-          <Voucher
-            key={voucher.key}
-            item={voucher}
-            onPress={this.props.onVoucherPressed}
-          />
-        ))}
+        {vouchers.map(voucher => {
+          const count = currentVouchers.filter(
+            voucherElement => voucherElement.key === voucher.key
+          ).length
+          return (
+            <Voucher
+              key={voucher.key}
+              item={voucher}
+              onPress={onVoucherPressed}
+              count={count}
+            />
+          )
+        })}
       </Container>
     )
   }

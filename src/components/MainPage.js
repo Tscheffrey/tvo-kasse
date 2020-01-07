@@ -20,8 +20,7 @@ class MainPage extends React.Component {
     super(props)
 
     this.state = {
-      vouchers: vouchers,
-      currentVouchers: {},
+      currentVouchers: [],
       totalPrice: 0.0,
       muted: true,
       isFullscreenEnabled: false,
@@ -36,33 +35,31 @@ class MainPage extends React.Component {
     this.addVoucher(voucher.key)
   }
 
-  addVoucher(key) {
-    let currentVouchers = this.state.currentVouchers
-
-    if (currentVouchers[key]) currentVouchers[key] = ++currentVouchers[key]
-    else currentVouchers[key] = 1
-
+  addVoucher(voucherKey) {
+    const { currentVouchers } = this.state
+    const selectedVoucher = vouchers.find(voucher => voucher.key === voucherKey)
+    currentVouchers.push(selectedVoucher)
     this.setState({ currentVouchers })
   }
 
-  getTotalPrice() {
-    let totalPrice = 0.0
-    for (let key in this.state.currentVouchers) {
-      let voucher = this.voucherByKey(key)
-      totalPrice +=
-        (voucher.price + voucher.deposit) * this.state.currentVouchers[key]
+  getPrice() {
+    const { currentVouchers } = this.state
+    let price = 0.0
+    let deposit = 0.0
+
+    for (const voucher of currentVouchers) {
+      price += voucher.price
+      deposit += voucher.deposit
     }
 
-    return totalPrice
-  }
+    const totalPrice = price + deposit
 
-  voucherByKey(key) {
-    return this.state.vouchers.find(element => element.key === key)
+    return { price, deposit, totalPrice }
   }
 
   resetVouchers() {
     this.playSound(sound1)
-    this.setState({ currentVouchers: {} })
+    this.setState({ currentVouchers: [] })
   }
 
   playSound(src) {
@@ -73,6 +70,8 @@ class MainPage extends React.Component {
     }
   }
   render() {
+    const { totalPrice } = this.getPrice()
+    const { currentVouchers, isFullscreenEnabled } = this.state
     return (
       <Fullscreen
         enabled={this.state.isFullscreenEnabled}
@@ -80,19 +79,20 @@ class MainPage extends React.Component {
       >
         <Container className="main-container">
           <Price
-            isFullscreenEnabled={this.state.isFullscreenEnabled}
+            isFullscreenEnabled={isFullscreenEnabled}
             onFullScreenPressed={() =>
               this.setState({
-                isFullscreenEnabled: !this.state.isFullscreenEnabled,
+                isFullscreenEnabled: !isFullscreenEnabled,
               })
             }
-            amount={this.getTotalPrice()}
+            amount={totalPrice}
             primaryColor="#121212"
             currency="€"
             onReset={this.resetVouchers}
           />
           <VoucherContainer
-            vouchers={this.state.vouchers}
+            currentVouchers={currentVouchers}
+            vouchers={vouchers}
             onVoucherPressed={this.onVoucherPressed}
           />
           {/* <Link to="/settings/">zu den Einstellungen</Link> */}

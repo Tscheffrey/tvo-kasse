@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 import media from '../helpers/media'
 
-import { readableColor, ellipsis } from 'polished'
+import { readableColor, ellipsis, invert } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
+  min-height: 103px;
   width: 100%;
   ${media.l`width: 50%;`}
   ${media.xl`width: 33.33%;`}
@@ -65,6 +66,7 @@ const Price = styled.span`
   font-family: 'Roboto Mono', monospace;
   font-size: 24px;
   font-weight: 700;
+  white-space: nowrap;
 `
 
 const Deposit = styled.span`
@@ -72,14 +74,25 @@ const Deposit = styled.span`
   font-size: 24px;
   font-weight: 300;
   white-space: nowrap;
-  opacity: ${props => (props.visible ? 0.5 : 0)};
+  opacity: 0.5;
 `
 
 const DepositLabel = styled.span`
   font-family: 'Roboto Condensed', sans-serif;
   font-size: 12px;
+  line-height: 12px;
   text-transform: uppercase;
   margin-right: 8px;
+`
+
+const Counter = styled.span`
+  /* font-family: 'Roboto Mono', monospace;
+  font-size: 1rem;
+  white-space: nowrap; */
+  display: inline-block;
+  border-radius: 20px;
+  padding-top: 2px;
+  opacity: ${props => (props.visible ? '0.5' : '0')};
 `
 
 class Voucher extends React.Component {
@@ -105,25 +118,29 @@ class Voucher extends React.Component {
   }
 
   render() {
+    const { count, item } = this.props
     let subtitle = this.props.item.others
       ? 'oder ' + this.props.item.others.join(', ')
       : ''
     return (
       <VoucherWrapper>
-        <VoucherInner
-          onMouseDown={this.onClick}
-          bgcolor={this.props.item.color}
-        >
+        <VoucherInner onMouseDown={this.onClick} bgcolor={item.color}>
           <TitleContainer>
-            <Title title={this.props.item.title}>{this.props.item.title}</Title>
+            <Title title={item.title}>{item.title}</Title>
             <Price>{this.totalPrice()}</Price>
           </TitleContainer>
           <SubtitleContainer>
-            <Subtitle>{subtitle}</Subtitle>
-            <Deposit visible={!(this.props.item.deposit === 0)}>
-              <DepositLabel>Pfand</DepositLabel>
-              {this.deposit()}
-            </Deposit>
+            <Subtitle>
+              {subtitle}
+              <br />
+              <Counter visible={count > 0}>{count}x</Counter>
+            </Subtitle>
+            {item.deposit > 0 && (
+              <Deposit>
+                <DepositLabel>davon Pfand</DepositLabel>
+                {this.deposit()}
+              </Deposit>
+            )}
           </SubtitleContainer>
         </VoucherInner>
       </VoucherWrapper>

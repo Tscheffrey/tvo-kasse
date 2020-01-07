@@ -106,13 +106,11 @@ class Price extends React.Component {
   }
 
   render() {
-    let amountRounded = this.props.amount.toFixed(2)
+    let { amount } = this.props
+    let amountRounded = parseFloat(amount).toFixed(2)
     let amountLeft = Math.floor(amountRounded).toString()
-
     let amountRight = amountRounded.toString().split('.')[1]
-
     let rightSideVisible = amountRight !== '00'
-
     let amountIsNotZero = this.props.amount !== 0
 
     return (
