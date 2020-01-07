@@ -32,12 +32,8 @@ const VoucherInner = styled.div`
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
-  :active {
-    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
-
-    .voucher-content-wrapper {
-      transform: scale(0.95);
-    }
+  &:active .voucher-content-wrapper {
+    transform: scale(0.99);
   }
   ${media.down.m`
     padding: 8px;
