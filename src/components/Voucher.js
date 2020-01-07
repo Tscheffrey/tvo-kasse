@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import media from '../helpers/media'
 
-import { readableColor, ellipsis, invert } from 'polished'
+import { readableColor, ellipsis } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
