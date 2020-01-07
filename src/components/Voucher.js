@@ -24,12 +24,12 @@ const VoucherInner = styled.div`
   border-radius: 5px;
   overflow: hidden;
   position: relative;
-  box-shadow: 0 0 30px 6px rgba(142, 142, 142, 0.5);
+  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
   transition: transform 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44),
     box-shadow 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
   :active {
-    box-shadow: 0 0 30px 6px rgba(142, 142, 142, 0);
+    box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(3px);
   }
   ${media.down.m`
