@@ -30,7 +30,7 @@ const VoucherInner = styled.div`
     box-shadow 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
   :active {
     box-shadow: 0 0 30px 6px rgba(142, 142, 142, 0);
-    transform: translateY(6px);
+    transform: translateY(3px);
   }
   ${media.down.m`
     padding: 8px;
