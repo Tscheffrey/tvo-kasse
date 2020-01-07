@@ -1,9 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { readableColor, ellipsis } from 'polished'
 
 import media from '../helpers/media'
-
-import { readableColor, ellipsis } from 'polished'
 
 const VoucherWrapper = styled.div`
   height: auto;
