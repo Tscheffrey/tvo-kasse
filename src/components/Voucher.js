@@ -12,6 +12,11 @@ const VoucherWrapper = styled.div`
   ${media.xl`width: 33.33%;`}
   padding: 8px;
 `
+const CounterWrapper = styled.div`
+  position: relative;
+  height: 100%;
+  width: 100%;
+`
 
 const VoucherInner = styled.div`
   color: ${props => readableColor(props.bgcolor)};
@@ -91,7 +96,37 @@ const Counter = styled.span`
   display: inline-block;
   border-radius: 20px;
   padding-top: 2px;
+  transition: opacity 100ms ease, transform 100ms ease;
+  transform: ${props => (props.visible ? 'none' : 'translateY(12px)')};
   opacity: ${props => (props.visible ? '0.5' : '0')};
+`
+
+const CounterBadge = styled.div`
+  color: white;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+  font-size: 12px;
+  height: 26px;
+  min-width: 26px;
+  padding: 0 3px;
+  background: #232323;
+  position: absolute;
+  right: -7px;
+  top: -7px;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 100ms ease, transform 100ms ease;
+  transform: ${props => (props.visible ? 'none' : 'scale(0.2)')};
+  opacity: ${props => (props.visible ? '1' : '0')};
+  z-index: 10;
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+`
+
+const CounterBadgeText = styled.span`
+  position: relative;
+  top: -1px;
 `
 
 class Voucher extends React.Component {
@@ -123,25 +158,26 @@ class Voucher extends React.Component {
       : ''
     return (
       <VoucherWrapper>
-        <VoucherInner onMouseDown={this.onClick} bgcolor={item.color}>
-          <TitleContainer>
-            <Title title={item.title}>{item.title}</Title>
-            <Price>{this.totalPrice()}</Price>
-          </TitleContainer>
-          <SubtitleContainer>
-            <Subtitle>
-              {subtitle}
-              <br />
-              <Counter visible={count > 0}>{count}x</Counter>
-            </Subtitle>
-            {item.deposit > 0 && (
-              <Deposit>
-                <DepositLabel>davon Pfand</DepositLabel>
-                {this.deposit()}
-              </Deposit>
-            )}
-          </SubtitleContainer>
-        </VoucherInner>
+        <CounterWrapper>
+          <VoucherInner onMouseDown={this.onClick} bgcolor={item.color}>
+            <TitleContainer>
+              <Title title={item.title}>{item.title}</Title>
+              <Price>{this.totalPrice()}</Price>
+            </TitleContainer>
+            <SubtitleContainer>
+              <Subtitle>{subtitle}</Subtitle>
+              {item.deposit > 0 && (
+                <Deposit>
+                  <DepositLabel>davon Pfand</DepositLabel>
+                  {this.deposit()}
+                </Deposit>
+              )}
+            </SubtitleContainer>
+          </VoucherInner>
+          <CounterBadge visible={count > 0}>
+            <CounterBadgeText>{count}</CounterBadgeText>
+          </CounterBadge>
+        </CounterWrapper>
       </VoucherWrapper>
     )
   }
