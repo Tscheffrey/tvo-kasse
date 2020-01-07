@@ -31,15 +31,24 @@ const VoucherInner = styled.div`
   position: relative;
   box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(0, 0, 0, 0.1);
-  transition: transform 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44),
-    box-shadow 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
+  box-shadow: 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
   :active {
     box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.1);
-    transform: translateY(3px);
+
+    .voucher-content-wrapper {
+      transform: scale(0.95);
+    }
   }
   ${media.down.m`
     padding: 8px;
   `}
+`
+
+const ContentWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  transform: none;
+  transition: transform 100ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
 `
 
 const Title = styled.span`
@@ -144,19 +153,21 @@ class Voucher extends React.Component {
       <VoucherWrapper>
         <CounterWrapper>
           <VoucherInner onMouseDown={this.onClick} bgcolor={item.color}>
-            <TitleContainer>
-              <Title title={item.title}>{item.title}</Title>
-              <Price>{this.totalPrice()}</Price>
-            </TitleContainer>
-            <SubtitleContainer>
-              <Subtitle>{subtitle}</Subtitle>
-              {item.deposit > 0 && (
-                <Deposit>
-                  <DepositLabel>davon Pfand</DepositLabel>
-                  {this.deposit()}
-                </Deposit>
-              )}
-            </SubtitleContainer>
+            <ContentWrapper className="voucher-content-wrapper">
+              <TitleContainer>
+                <Title title={item.title}>{item.title}</Title>
+                <Price>{this.totalPrice()}</Price>
+              </TitleContainer>
+              <SubtitleContainer>
+                <Subtitle>{subtitle}</Subtitle>
+                {item.deposit > 0 && (
+                  <Deposit>
+                    <DepositLabel>davon Pfand</DepositLabel>
+                    {this.deposit()}
+                  </Deposit>
+                )}
+              </SubtitleContainer>
+            </ContentWrapper>
           </VoucherInner>
           <CounterBadge visible={count > 0}>{count}</CounterBadge>
         </CounterWrapper>
