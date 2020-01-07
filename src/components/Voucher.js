@@ -122,9 +122,8 @@ const CounterBadge = styled.div`
   opacity: ${props => (props.visible ? '1' : '0')};
   z-index: 10;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.15);
+  pointer-events: none;
 `
-
-const CounterBadgeText = styled.span``
 
 class Voucher extends React.Component {
   constructor(props) {
@@ -171,9 +170,7 @@ class Voucher extends React.Component {
               )}
             </SubtitleContainer>
           </VoucherInner>
-          <CounterBadge visible={count > 0}>
-            <CounterBadgeText>{count}</CounterBadgeText>
-          </CounterBadge>
+          <CounterBadge visible={count > 0}>{count}</CounterBadge>
         </CounterWrapper>
       </VoucherWrapper>
     )
