@@ -32,5 +32,4 @@ media.down = Object.keys(sizes).reduce((acc, label) => {
   return acc
 }, {})
 
-
-module.exports = media
+export default media

@@ -14,19 +14,14 @@ const vouchers = [
     price: 1.5,
     deposit: 2.5,
     depositMark: true,
-    others: [
-      'Fanta',
-    ],
+    others: ['Fanta'],
   },
   {
     title: 'Bier',
     color: '#fbee4f',
     price: 2.5,
     deposit: 2,
-    others: [
-      'Export',
-      'Radler',
-    ],
+    others: ['Export', 'Radler'],
   },
   {
     title: 'Kräusen',
@@ -34,9 +29,7 @@ const vouchers = [
     price: 2.3,
     deposit: 2,
     depositMark: true,
-    others: [
-      'Alkoholfrei',
-    ],
+    others: ['Alkoholfrei'],
   },
   {
     title: 'Apfelschorle',
@@ -44,9 +37,7 @@ const vouchers = [
     price: 2,
     deposit: 0,
     depositMark: true,
-    others: [
-      'Alkoholfrei',
-    ],
+    others: ['Alkoholfrei'],
   },
   {
     title: 'Wein',
@@ -65,20 +56,14 @@ const vouchers = [
     color: '#c0deec',
     price: 1.5,
     deposit: 0,
-    others: [
-      'Sprudel',
-      'MezzoMix',
-    ],
+    others: ['Sprudel', 'MezzoMix'],
   },
   {
     title: 'Portion Kartoffelsalat',
     color: '#ec9696',
     price: 1.5,
     deposit: 0,
-    others: [
-      'leeres Glas',
-      'Schnaps',
-    ],
+    others: ['leeres Glas', 'Schnaps'],
   },
 ]
 
@@ -86,5 +71,4 @@ for (let voucher of vouchers) {
   voucher.key = Shortid.generate()
 }
 
-
-module.exports = vouchers
+export default vouchers
