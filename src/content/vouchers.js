@@ -6,6 +6,4 @@ for (let voucher of vouchers) {
   voucher.uuid = uuidv4()
 }
 
-console.log('vouchers', vouchers)
-
 export default vouchers
