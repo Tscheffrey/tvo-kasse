@@ -143,9 +143,7 @@ class Voucher extends React.Component {
 
   render() {
     const { count, voucher } = this.props
-    let subtitle = this.props.voucher.others
-      ? 'oder ' + this.props.voucher.others.join(', ')
-      : ''
+    const subtitle = voucher.others ? 'oder ' + voucher.others.join(', ') : null
     return (
       <VoucherWrapper>
         <CounterWrapper>
