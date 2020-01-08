@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import ResetIcon from '../images/loop.svg'
+import resetIcon from '../images/loop.svg'
 import FullscreenIcon from '../images/fullscreen.svg'
 import FullscreenExitIcon from '../images/fullscreen-exit.svg'
 import media from '../helpers/media'
@@ -57,18 +57,28 @@ const ResetButton = styled.div`
         box-shadow: 0px 4px 19px 8px rgba(47, 47, 47, 0.22);
         background-color: #2546bf;
         transition: transform 100ms cubic-bezier(.01,.68,.33,1.44), box-shadow 100ms cubic-bezier(.01,.68,.33,1.44);
-        :active {
+        &:active {
           box-shadow: 0 0 30px 6px rgba(47, 47, 47, 0);
           transform: translateY(4px);
         }
         `}
   background: #1f1f1f;
   cursor: pointer;
-  padding: 24px;
-  background-image: url(${ResetIcon});
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:active .price-reset-icon {
+    transform: scale(0.9) rotate(-30deg);
+  }
+`
+
+const ResetIcon = styled.img`
+  height: 60%;
+  width: 60%;
+  object-fit: contain;
+  transform: none;
+  pointer-events: none;
+  transition: transform 200ms cubic-bezier(0.01, 0.68, 0.33, 1.44);
 `
 
 const FullscreenButton = styled.div`
@@ -130,7 +140,9 @@ class Price extends React.Component {
             {this.props.currency}
           </Currency>
         </Value>
-        <ResetButton onClick={this.props.onReset} />
+        <ResetButton onClick={this.props.onReset}>
+          <ResetIcon src={resetIcon} className={'price-reset-icon'} />
+        </ResetButton>
       </Container>
     )
   }
