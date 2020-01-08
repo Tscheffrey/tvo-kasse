@@ -22,8 +22,8 @@
     "react-helmet": "^5.2.1",
     "react-responsive": "^8.0.1",
     "react-sizeme": "^2.6.10",
-    "shortid": "^2.2.15",
-    "styled-components": "^4.4.1"
+    "styled-components": "^4.4.1",
+    "uuid": "^3.3.3"
   },
   "keywords": [
     "gatsby"

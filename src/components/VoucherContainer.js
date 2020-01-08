@@ -35,12 +35,12 @@ class VoucherContainer extends React.Component {
       <Container>
         {vouchers.map(voucher => {
           const count = currentVouchers.filter(
-            voucherElement => voucherElement.key === voucher.key
+            voucherElement => voucherElement.uuid === voucher.uuid
           ).length
           return (
             <Voucher
-              key={voucher.key}
-              item={voucher}
+              key={voucher.uuid}
+              voucher={voucher}
               onPress={onVoucherPressed}
               count={count}
             />

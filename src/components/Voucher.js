@@ -125,7 +125,7 @@ class Voucher extends React.Component {
   }
 
   onClick() {
-    if (this.props.onPress) this.props.onPress(this.props.item)
+    this.props.onPress(this.props.voucher)
   }
 
   formatPrice(price) {
@@ -133,30 +133,31 @@ class Voucher extends React.Component {
   }
 
   totalPrice() {
-    return this.formatPrice(this.props.item.price + this.props.item.deposit)
+    const { voucher } = this.props
+    return this.formatPrice(voucher.price + voucher.deposit)
   }
 
   deposit() {
-    return this.formatPrice(this.props.item.deposit)
+    return this.formatPrice(this.props.voucher.deposit)
   }
 
   render() {
-    const { count, item } = this.props
-    let subtitle = this.props.item.others
-      ? 'oder ' + this.props.item.others.join(', ')
+    const { count, voucher } = this.props
+    let subtitle = this.props.voucher.others
+      ? 'oder ' + this.props.voucher.others.join(', ')
       : ''
     return (
       <VoucherWrapper>
         <CounterWrapper>
-          <VoucherInner onMouseDown={this.onClick} bgcolor={item.color}>
+          <VoucherInner onMouseDown={this.onClick} bgcolor={voucher.color}>
             <ContentWrapper className="voucher-content-wrapper">
               <TitleContainer>
-                <Title title={item.title}>{item.title}</Title>
+                <Title title={voucher.title}>{voucher.title}</Title>
                 <Price>{this.totalPrice()}</Price>
               </TitleContainer>
               <SubtitleContainer>
                 <Subtitle>{subtitle}</Subtitle>
-                {item.deposit > 0 && (
+                {voucher.deposit > 0 && (
                   <Deposit>
                     <DepositLabel>davon Pfand</DepositLabel>
                     {this.deposit()}

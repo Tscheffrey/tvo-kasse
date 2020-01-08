@@ -32,12 +32,12 @@ class MainPage extends React.Component {
 
   onVoucherPressed(voucher) {
     this.playSound(sound2)
-    this.addVoucher(voucher.key)
+    this.addVoucher(voucher.uuid)
   }
 
-  addVoucher(voucherKey) {
+  addVoucher(voucherId) {
     const { currentVouchers } = this.state
-    const selectedVoucher = vouchers.find(voucher => voucher.key === voucherKey)
+    const selectedVoucher = vouchers.find(voucher => voucher.uuid === voucherId)
     currentVouchers.push(selectedVoucher)
     this.setState({ currentVouchers })
   }
