@@ -137,7 +137,7 @@ class Voucher extends React.Component {
     return this.formatPrice(voucher.price + voucher.deposit)
   }
 
-  deposit() {
+  renderDeposit() {
     return this.formatPrice(this.props.voucher.deposit)
   }
 
@@ -158,7 +158,7 @@ class Voucher extends React.Component {
                 {voucher.deposit > 0 && (
                   <Deposit>
                     <DepositLabel>davon Pfand</DepositLabel>
-                    {this.deposit()}
+                    {this.renderDeposit()}
                   </Deposit>
                 )}
               </SubtitleContainer>
