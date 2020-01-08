@@ -1,26 +1,15 @@
-# gatsby-starter-default
-The default Gatsby starter.
+# TVO Kassenassistent
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/504a049e-43a5-4e72-8cb7-6a0b024975f8/deploy-status)](https://app.netlify.com/sites/tvo-kasse/deploys)
 
-## Install
+## Requirements
 
-Make sure that you have the Gatsby CLI program installed:
-```sh
-npm install --global gatsby-cli
-```
+- [Node.js](https://nodejs.org/en/) >= `10.15.3` ([nodenv](https://github.com/nodenv/nodenv) recommended for macOS)
+- [Yarn](https://yarnpkg.com/lang/en/)
 
-And run from your CLI:
-```sh
-gatsby new gatsby-example-site
-```
+## Setup
 
-Then you can run it by:
-```sh
-cd gatsby-example-site
-gatsby develop
-```
-
-## Deploy
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+- `clone` and `cd` into this repository
+- `yarn install`
+- `yarn start`
+- open [http://localhost:8000](http://localhost:8000) in your browser
