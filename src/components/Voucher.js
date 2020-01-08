@@ -49,14 +49,14 @@ const ContentWrapper = styled.div`
 
 const Title = styled.span`
   font-size: 28px;
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto Condensed', sans-serif;
   font-weight: 700;
   ${ellipsis('250px')}
 `
 
 const Subtitle = styled.span`
   font-size: 14px;
-  font-family: 'Roboto Condensed';
+  font-family: 'Roboto Condensed', sans-serif;
 `
 
 const TitleContainer = styled.span`

@@ -13,6 +13,10 @@ const Container = styled.div`
   display: flex;
   justify-content: flex-end;
   flex-shrink: 0;
+  height: 110px;
+  ${media.down.m`
+      height: 92px;
+      `}
 `
 
 const Value = styled.div`
