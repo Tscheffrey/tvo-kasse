@@ -72,7 +72,7 @@ const ResetButton = styled.div`
   justify-content: center;
   align-items: center;
   &:active .price-reset-icon {
-    transform: scale(0.9) rotate(-30deg);
+    transform: rotate(-30deg);
   }
 `
 
