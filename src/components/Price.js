@@ -100,12 +100,12 @@ const FullscreenButton = styled.div`
 `
 
 class Price extends React.Component {
-  FullScreenButtonView() {
-    let isBrowser = typeof window !== 'undefined'
-    let isPwa = isBrowser
+  renderFullScreenButton() {
+    const isBrowser = typeof window !== 'undefined'
+    const isPwa = isBrowser
       ? window.matchMedia('(display-mode: standalone)').matches
       : false
-    let hideFullscreenButton = isMobileSafari || isPwa
+    const hideFullscreenButton = isMobileSafari || isPwa
     if (!hideFullscreenButton)
       return (
         <FullscreenButton
@@ -116,31 +116,32 @@ class Price extends React.Component {
   }
 
   render() {
-    let { amount } = this.props
-    let amountRounded = parseFloat(amount).toFixed(2)
-    let amountLeft = Math.floor(amountRounded).toString()
-    let amountRight = amountRounded.toString().split('.')[1]
-    let rightSideVisible = amountRight !== '00'
-    let amountIsNotZero = this.props.amount !== 0
+    const { amount, placeholder, primaryColor, currency, onReset } = this.props
+    const amountRounded = parseFloat(amount).toFixed(2)
+    const amountLeft = Math.floor(amountRounded).toString()
+    const amountRight = amountRounded.toString().split('.')[1]
+    const rightSideVisible = amountRight !== '00'
+    const amountIsNotZero = amount !== 0
 
     return (
-      <Container
-        className="price-container"
-        primaryColor={this.props.primaryColor}
-      >
-        {this.FullScreenButtonView()}
-        <Value>
-          <AmountLeft className="price-left" visible={amountIsNotZero}>
-            {amountLeft}
-          </AmountLeft>
-          <AmountRight className="price-right" visible={rightSideVisible}>
-            ,{amountRight}
-          </AmountRight>
-          <Currency className="price-currency" visible={amountIsNotZero}>
-            {this.props.currency}
-          </Currency>
-        </Value>
-        <ResetButton onClick={this.props.onReset}>
+      <Container className="price-container" primaryColor={primaryColor}>
+        {!placeholder && (
+          <>
+            {this.renderFullScreenButton()}
+            <Value>
+              <AmountLeft className="price-left" visible={amountIsNotZero}>
+                {amountLeft}
+              </AmountLeft>
+              <AmountRight className="price-right" visible={rightSideVisible}>
+                ,{amountRight}
+              </AmountRight>
+              <Currency className="price-currency" visible={amountIsNotZero}>
+                {currency}
+              </Currency>
+            </Value>
+          </>
+        )}
+        <ResetButton onClick={onReset}>
           <ResetIcon src={resetIcon} className={'price-reset-icon'} />
         </ResetButton>
       </Container>

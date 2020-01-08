@@ -24,10 +24,15 @@ class MainPage extends React.Component {
       totalPrice: 0.0,
       muted: true,
       isFullscreenEnabled: false,
+      isMounted: false,
     }
 
     this.onVoucherPressed = this.onVoucherPressed.bind(this)
     this.resetVouchers = this.resetVouchers.bind(this)
+  }
+
+  componentDidMount() {
+    this.setState({ isMounted: true })
   }
 
   onVoucherPressed(voucher) {
@@ -70,8 +75,8 @@ class MainPage extends React.Component {
     }
   }
   render() {
+    const { currentVouchers, isFullscreenEnabled, isMounted } = this.state
     const { totalPrice } = this.getPrice()
-    const { currentVouchers, isFullscreenEnabled } = this.state
     return (
       <Fullscreen
         enabled={this.state.isFullscreenEnabled}
@@ -79,6 +84,7 @@ class MainPage extends React.Component {
       >
         <Container className="main-container">
           <Price
+            placeholder={!isMounted}
             isFullscreenEnabled={isFullscreenEnabled}
             onFullScreenPressed={() =>
               this.setState({
